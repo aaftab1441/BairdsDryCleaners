@@ -1,0 +1,133 @@
+﻿@page "/pick-up-delivery-form"
+@using reCAPTCHA.AspNetCore
+@using reCAPTCHA.AspNetCore.Versions;
+@using Microsoft.Extensions.Options
+@inject IOptions<RecaptchaSettings> RecaptchaSettings
+@model BA.BairdsDryCleaners.Pages.PickUpViewModel
+@{
+    ViewData["Title"] = "Pick Up Delivery Form";
+    ViewData["Description"] = "Baird's Offers pick up for all your dry cleaning needs!";
+    ViewData["Keywords"] = "dry cleaners, leathers, suede, coats, boise, idaho, meridian, eagle";
+    ViewData["CanonicalURL"] = "https://bairdsdrycleaners.com/pick-up-delivery-form";
+}
+<div class="section pick-up-delivery-form">
+    <div class="inner">
+        <div>
+            <h1 class="large">
+                FREE Pick Up & Delivery Service
+            </h1>
+            <p>
+                Bairds Dry Cleaners offers FREE Pickup and Delivery of your dry cleaning as a weekly service.<br />Please tell us
+                a little bit about yourself and we will contact you back to schedule.
+            </p>
+            @using (@Html.BeginForm(null, null, FormMethod.Post, new { id = "pickup", @class = "contact" }))
+            {
+                @Html.ValidationSummary(true)
+                ;
+                <div>
+                    <div>
+                        <label>
+                            Name
+                        </label>
+                        <input asp-for="PickUp.Name" type="text" data-val-required="Name is a Required Field" placeholder="Your Name" />
+                        <span asp-validation-for="PickUp.Name"></span>
+                    </div>
+                    <div>
+                        <label>
+                            Phone
+                        </label>
+                        <input asp-for="PickUp.Phone" type="text" data-val-required="Phone is a Required Field" placeholder="Phone Number" />
+                        <span asp-validation-for="PickUp.Phone"></span>
+                    </div>
+                    <div>
+                        <label>
+                            Address
+                        </label>
+                        <input asp-for="PickUp.Address" type="text" data-val-required="Address is a Required Field" placeholder="Address" />
+                        <span asp-validation-for="PickUp.Address"></span>
+                    </div>
+                    <div>
+                        <label>
+                            City
+                        </label>
+                        <input asp-for="PickUp.City" type="text" data-val-required="City is a Required Field" placeholder="City" />
+                        <span asp-validation-for="PickUp.City"></span>
+                    </div>
+                    <div>
+                        <label>
+                            ZIP
+                        </label>
+                        <input asp-for="PickUp.ZIP" type="text" data-val-required="ZIP is a Required Field" placeholder="ZIP" />
+                        <span asp-validation-for="PickUp.ZIP"></span>
+                    </div>
+                    <div>
+                        <label>
+                            Email Address
+                        </label>
+                        <input asp-for="PickUp.Email" type="text" data-val-required="Email is a Required Field" placeholder="Email" />
+                        <span asp-validation-for="PickUp.Email"></span>
+                    </div>
+                    <div>
+                        <label>
+                            Driver's License
+                        </label>
+                        <input asp-for="PickUp.DriversLicense" type="text" data-val-required="Drivers License is a Required Field" placeholder="Driver's License" />
+                    </div>
+                    <div>
+                        <label>
+                            Date of Birth
+                        </label>
+                        <input asp-for="PickUp.DateOfBirth" type="text" data-val-required="Date of Birth is a Required Field" placeholder="Month/Day/Year" />
+                    </div>
+                    <div>
+                        <label>
+                            Billing Address (Include City / ZIP)
+                        </label>
+                        <input asp-for="PickUp.BillingAddress" type="text" data-val-required="Billing Address is a Required Field" placeholder="Address, City, State, ZIP" />
+                        <span asp-validation-for="PickUp.BillingAddress"></span>
+                    </div>
+                </div>
+                <div>
+                    <label>Starch</label>
+                    <label class="radio"><input asp-for="PickUp.Starch" type="radio" value="No Starch" checked="checked" />None</label>
+                    <label class="radio"><input asp-for="PickUp.Starch" type="radio" value="Light Starch" /> Light</label>
+                    <label class="radio"><input asp-for="PickUp.Starch" type="radio" value="Medium Starch" /> Medium</label>
+                    <label class="radio"><input asp-for="PickUp.Starch" type="radio" value="Heavy Starch" /> Heavy</label>
+                </div>
+                <div>
+                    <label>
+                        Repairs
+                    </label>
+                    <br>
+                    <label class="radio"><input asp-for="PickUp.Repairs" type="radio" value="Yes to Repairs" checked="checked" /> Yes</label>
+                    <label class="radio"><input asp-for="PickUp.Repairs" type="radio" value="No to Repairs" /> No</label>
+                </div>
+                <div>
+                    <label>I understand the FREE Pickup and Delivery Service is a regular weekly service.</label>
+                </div>
+                <div>
+                    <label class="radio"><input asp-for="PickUp.Delivery" type="radio" value="Yes to Delivery" checked="checked" /> YES, WHAT'S NOT TO LOVE ABOUT FREE PICKUP AND DELIVERY, SIGN ME UP!</label>
+                </div>
+                <div>
+                    <label>
+                        Message or Question:
+                    </label>
+                    <textarea asp-for="PickUp.Comments"></textarea>
+                    <span asp-validation-for="PickUp.Comments"></span>
+                </div>
+                <div>
+                    @(Html.Recaptcha<RecaptchaV2Checkbox>(RecaptchaSettings.Value))
+                    <input type="hidden" name="g-recaptcha-response" value="" />
+                </div>
+                <input id="recaptcha" type="submit" value="Submit">
+                <div class="secondary-items">
+                    <label for="Name">Name</label><input name="Name" type="text" autocomplete="off" />
+                    <label for="Email">Email</label><input name="Email" type="text" autocomplete="off" />
+                    <label for="Phone">Phone</label><input name="Phone" type="text" autocomplete="off" />
+                    <label for="Comments">Comments</label><textarea name="Comments" autocomplete="off"></textarea>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<partial name="_LocationsPartial" />

@@ -1,0 +1,573 @@
+﻿@page "/employment"
+@using reCAPTCHA.AspNetCore
+@using reCAPTCHA.AspNetCore.Versions;
+@using Microsoft.Extensions.Options
+@inject IOptions<RecaptchaSettings> RecaptchaSettings
+@model BA.BairdsDryCleaners.Pages.EmploymentModel
+@{
+    ViewData["Title"] = "Employment";
+}
+
+<div class="section employment">
+    <div class="inner">
+        <div class="content-wide">
+            <h2 class="align-center">
+                Now Hiring!
+            </h2>
+            <p class="align-center">
+                Baird's Dry Cleaners is now hiring!
+            </p>
+            <a class="employment-button" href="/employment#Form">Apply Now</a>
+        </div>
+    </div>
+</div>
+<div class="section employment-area">
+    <div class="inner">
+        <div>
+            <a name="Form" />
+            <h1 class="large">
+                Employment Form
+            </h1>
+            @using (@Html.BeginForm(null, null, FormMethod.Post, new { id = "employment", @class = "contact" }))
+            {
+                @Html.ValidationSummary(true);
+                <div>
+                    <h2 class="text-center">Personal Information</h2>
+                </div>
+                <div>
+                    <div>
+                        <label>
+                            Name (Required)
+                        </label>
+                        <input asp-for="EmployeeForm.Name" type="text" placeholder="Your Name" />
+                        <span asp-validation-for="EmployeeForm.Name"></span>
+                    </div>
+                    <div>
+                        <label>
+                            Email (Required)
+                        </label>
+                        <input asp-for="EmployeeForm.Email" type="text" placeholder="Email" />
+                        <span asp-validation-for="EmployeeForm.Email"></span>
+                    </div>
+                    <div>
+                        <label>
+                            Phone (Required)
+                        </label>
+                        <input asp-for="EmployeeForm.Phone" type="text" data-val-required="Phone is a Required Field" placeholder="Phone Number" />
+                        <span asp-validation-for="EmployeeForm.Phone"></span>
+                    </div>
+                    <div>
+                        <label>
+                            Present Address
+                        </label>
+                        <input asp-for="EmployeeForm.PresentAddressLine" type="text" data-val-required="Address is a Required Field" placeholder="Address Line" />
+                        <span asp-validation-for="EmployeeForm.PresentAddressLine"></span>
+                        <input asp-for="EmployeeForm.PresentCity" type="text" data-val-required="City is a Required Field" placeholder="City" />
+                        <span asp-validation-for="EmployeeForm.PresentCity"></span>
+                        <input asp-for="EmployeeForm.PresentState" type="text" data-val-required="State is a Required Field" placeholder="State" />
+                        <span asp-validation-for="EmployeeForm.PresentState"></span>
+                        <input asp-for="EmployeeForm.PresentZIP" type="text" data-val-required="Zip is a Required Field" placeholder="ZIP" />
+                        <span asp-validation-for="EmployeeForm.PresentZIP"></span>
+                    </div>
+                    <div>
+                        <label>
+                            Permenant Address
+                        </label>
+                        <input asp-for="EmployeeForm.PermanentAddressLine" type="text" data-val-required="Permanent Address is a Required Field" placeholder="Address Line" />
+                        <span asp-validation-for="EmployeeForm.PermanentAddressLine"></span>
+                        <input asp-for="EmployeeForm.PermanentCity" type="text" data-val-required="Permanent City is a Required Field" placeholder="City" />
+                        <span asp-validation-for="EmployeeForm.PermanentCity"></span>
+                        <input asp-for="EmployeeForm.PermanentState" type="text" data-val-required="Permanent State is a Required Field" placeholder="State" />
+                        <span asp-validation-for="EmployeeForm.PermanentState"></span>
+                        <input asp-for="EmployeeForm.PermanentZIP" type="text" data-val-required="Permanent Zip is a Required Field" placeholder="ZIP" />
+                        <span asp-validation-for="EmployeeForm.PermanentZIP"></span>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="text-center">Employment Desired</h2>
+                </div>
+                <div>
+                    <div>
+                        <label>
+                            What position are you applying for?
+                        </label>
+                        <input asp-for="EmployeeForm.PositionApplied" type="text" placeholder="Position applying for" />
+                        <span asp-validation-for="EmployeeForm.PositionApplied"></span>
+                    </div>
+                    <div>
+                        <label>
+                            Date you can start.
+                        </label>
+                        <input asp-for="EmployeeForm.PositionStartDate" type="text" placeholder="Start Date" />
+                        <span asp-validation-for="EmployeeForm.PositionStartDate"></span>
+                    </div>
+                    <div>
+                        <label>
+                            Salary desired
+                        </label>
+                        <input asp-for="EmployeeForm.SalaryDesired" type="text" placeholder="Salary Desired" />
+                        <span asp-validation-for="EmployeeForm.SalaryDesired"></span>
+                    </div>
+                    <div>
+                        <label>
+                            Are you employed?
+                        </label>
+                        <span><input asp-for="EmployeeForm.CurrentlyEmployed" type="radio" value="Yes" checked />Yes</span>
+                        <span><input asp-for="EmployeeForm.CurrentlyEmployed" type="radio" value="No" />No</span>
+                        <span asp-validation-for="EmployeeForm.CurrentlyEmployed"></span>
+                    </div>
+                    <div>
+                        <label>
+                            If so, may we inquire of your present employer?
+                        </label>
+                        <span><input asp-for="EmployeeForm.InquireCurrentEmployer" type="radio" value="Yes" checked />Yes</span>
+                        <span><input asp-for="EmployeeForm.InquireCurrentEmployer" type="radio" value="No" />No</span>
+                        <span asp-validation-for="EmployeeForm.InquireCurrentEmployer"></span>
+                    </div>
+                    <div>
+                        <label>
+                            Have you applied to Bairds before?*
+                        </label>
+                        <span><input asp-for="EmployeeForm.AppliedToBairds" type="radio" value="Yes" />Yes</span>
+                        <span><input asp-for="EmployeeForm.AppliedToBairds" type="radio" value="No" checked />No</span>
+                        <span asp-validation-for="EmployeeForm.AppliedToBairds"></span>
+                    </div>
+                    <div>
+                        <label>
+                            If so, where and when?
+                        </label>
+                        <input asp-for="EmployeeForm.AppliedToBairdsWhereWhen" type="text" />
+                    </div>
+                </div>
+                <div>
+                    <h2 class="text-center">Education</h2>
+                </div>
+                <div>
+                    <div>
+                        <label>
+                            High School
+                        </label>
+                        <input asp-for="EmployeeForm.Highschool" type="text" placeholder="Highschool" />
+                        <span asp-validation-for="EmployeeForm.Highschool"></span>
+                    </div>
+                    <div>
+                        <label>
+                            Years Attended
+                        </label>
+                        <input asp-for="EmployeeForm.HighschoolYrsAttended" type="text" placeholder="Yrs Attended" />
+                        <span asp-validation-for="EmployeeForm.HighschoolYrsAttended"></span>
+                    </div>
+                    <div>
+                        <label>
+                            Graduated
+                        </label>
+                        <span><input asp-for="EmployeeForm.HighschoolGraduated" type="radio" value="Yes" checked />Yes</span>
+                        <span><input asp-for="EmployeeForm.HighschoolGraduated" type="radio" value="No" />No</span>
+                        <span asp-validation-for="EmployeeForm.HighschoolGraduated"></span>
+                    </div>
+                    <div>
+                        <label>
+                            College
+                        </label>
+                        <input asp-for="EmployeeForm.College" type="text" placeholder="College" />
+                        <span asp-validation-for="EmployeeForm.College"></span>
+                    </div>
+                    <div>
+                        <label>
+                            Years Attended
+                        </label>
+                        <input asp-for="EmployeeForm.CollegelYrsAttended" type="text" placeholder="Yrs Attended" />
+                        <span asp-validation-for="EmployeeForm.CollegelYrsAttended"></span>
+                    </div>
+                    <div>
+                        <label>
+                            Graduated
+                        </label>
+                        <span><input asp-for="EmployeeForm.CollegeGraduated" type="radio" value="Yes" checked />Yes</span>
+                        <span><input asp-for="EmployeeForm.CollegeGraduated" type="radio" value="No" />No</span>
+                        <span asp-validation-for="EmployeeForm.CollegeGraduated"></span>
+                    </div>
+                    <div>
+                        <label>
+                            Major
+                        </label>
+                        <input asp-for="EmployeeForm.CollegeMajor" type="text" placeholder="Major" />
+                    </div>
+
+                    <div>
+                        <label>
+                            Trade, Business, or Correspondence School
+                        </label>
+                        <input asp-for="EmployeeForm.TradeBusiness" type="text" placeholder="College" />
+                        <span asp-validation-for="EmployeeForm.TradeBusiness"></span>
+                    </div>
+                    <div>
+                        <label>
+                            Years Attended
+                        </label>
+                        <input asp-for="EmployeeForm.TradeBusinessYrsAttended" type="text" placeholder="Yrs Attended" />
+                        <span asp-validation-for="EmployeeForm.TradeBusinessYrsAttended"></span>
+                    </div>
+                    <div>
+                        <label>
+                            Graduated
+                        </label>
+                        <span><input asp-for="EmployeeForm.TradeBusinessGraduated" type="radio" value="Yes" checked />Yes</span>
+                        <span><input asp-for="EmployeeForm.TradeBusinessGraduated" type="radio" value="No" />No</span>
+                        <span asp-validation-for="EmployeeForm.TradeBusinessGraduated"></span>
+                    </div>
+                    <div>
+                        <label>
+                            Subjects Studied
+                        </label>
+                        <input asp-for="EmployeeForm.TradeBusinessSubjects" type="text" placeholder="Major" />
+                    </div>
+
+                </div>
+                <div>
+                    <h2 class="text-center">General Information</h2>
+                </div>
+                <div>
+                    <div>
+                        <label>
+                            Subjects of special study
+                        </label>
+                    </div>
+                    <div>
+                        <textarea asp-for="EmployeeForm.SubjectsOfSpecialStudy"></textarea>
+                        <span asp-validation-for="EmployeeForm.SubjectsOfSpecialStudy"></span>
+                    </div>
+                    <div>
+                        <label>
+                            Special training, skills or certifications
+                        </label>
+                    </div>
+                    <div>
+                        <textarea asp-for="EmployeeForm.SpecialSkillsTraining"></textarea>
+                        <span asp-validation-for="EmployeeForm.SpecialSkillsTraining"></span>
+                    </div>
+                    <div>
+                        <label>
+                            US Military or Naval service
+                        </label>
+                        <input asp-for="EmployeeForm.MilitaryService" type="text" placeholder="Military Service" />
+                    </div>
+                    <div>
+                        <label>
+                            Rank
+                        </label>
+                        <input asp-for="EmployeeForm.MilitaryRank" type="text" placeholder="Rank" />
+                    </div>
+                </div>
+                <div>
+                    <h2 class="text-center">Current Employer</h2>
+                </div>
+                <div>
+                    <div>
+                        <label>
+                            Name and Address of Employer
+                        </label>
+                        <input asp-for="EmployeeForm.CurrentEmployerNameAddress" type="text" placeholder="Name and Address of Current Employer" />
+                    </div>
+                    <div>
+                        <label>
+                            Employment Dates (from)
+                        </label>
+                        <input asp-for="EmployeeForm.CurrentEmployerEmploymentDates" type="text" placeholder="From to date" />
+                    </div>
+                    <div>
+                        <label>
+                            Position
+                        </label>
+                        <input asp-for="EmployeeForm.CurrentEmployerPosition" type="text" placeholder="Position" />
+                    </div>
+                    <div>
+                        <label>
+                            Salary
+                        </label>
+                        <input asp-for="EmployeeForm.CurrentEmployerSalary" type="text" placeholder="Ending Salary" />
+                    </div>
+                    <div>
+                        <label>
+                            Reason for Leaving
+                        </label>
+                        <input asp-for="EmployeeForm.CurrentEmployerReason" type="text" placeholder="Reason for Leaving" />
+                    </div>
+                    <div>
+                        <label>
+                            Contact Name
+                        </label>
+                        <input asp-for="EmployeeForm.CurrentEmployerContactName" type="text" placeholder="Contact Name" />
+                    </div>
+                    <div>
+                        <label>
+                            Contact Phone
+                        </label>
+                        <input asp-for="EmployeeForm.CurrentEmployerContactPhone" type="text" placeholder="Contact Phone" />
+                    </div>
+                </div>
+                <div>
+                    <h2 class="text-center">Former Employers</h2>
+                </div>
+                <div>
+                    <div>
+                        <h3 class="text-center">Employer 1</h3>
+                    </div>
+
+                    <div>
+                        <label>
+                            Name and Address of Employer
+                        </label>
+                        <input asp-for="EmployeeForm.FormerEmployerNameAddress1" type="text" placeholder="Name and Address of Employer" />
+                    </div>
+                    <div>
+                        <label>
+                            Employment Dates (from - to)
+                        </label>
+                        <input asp-for="EmployeeForm.FormerEmployerEmploymentDates1" type="text" placeholder="Employment Dates" />
+                    </div>
+                    <div>
+                        <label>
+                            Position
+                        </label>
+                        <input asp-for="EmployeeForm.FormerEmployerPosition1" type="text" placeholder="Position" />
+                    </div>
+                    <div>
+                        <label>
+                            Salary
+                        </label>
+                        <input asp-for="EmployeeForm.FormerEmployerSalary1" type="text" placeholder="Ending Salary" />
+                    </div>
+                    <div>
+                        <label>
+                            Reason for Leaving
+                        </label>
+                        <input asp-for="EmployeeForm.FormerEmployerReason1" type="text" placeholder="Reason for Leaving" />
+                    </div>
+
+                    <div>
+                        <h3 class="text-center">Employer 2</h3>
+                    </div>
+
+                    <div>
+                        <label>
+                            Name and Address of Employer
+                        </label>
+                        <input asp-for="EmployeeForm.FormerEmployerNameAddress2" type="text" placeholder="Name and Address of Employer" />
+                    </div>
+                    <div>
+                        <label>
+                            Employment Dates (from - to)
+                        </label>
+                        <input asp-for="EmployeeForm.FormerEmployerEmploymentDates2" type="text" placeholder="Employment Dates" />
+                    </div>
+                    <div>
+                        <label>
+                            Position
+                        </label>
+                        <input asp-for="EmployeeForm.FormerEmployerPosition2" type="text" placeholder="Position" />
+                    </div>
+                    <div>
+                        <label>
+                            Salary
+                        </label>
+                        <input asp-for="EmployeeForm.FormerEmployerSalary2" type="text" placeholder="Ending Salary" />
+                    </div>
+                    <div>
+                        <label>
+                            Reason for Leaving
+                        </label>
+                        <input asp-for="EmployeeForm.FormerEmployerReason2" type="text" placeholder="Reason for Leaving" />
+                    </div>
+                    <div>
+                        <h3 class="text-center">Employer 3</h3>
+                    </div>
+
+                    <div>
+                        <label>
+                            Name and Address of Employer
+                        </label>
+                        <input asp-for="EmployeeForm.FormerEmployerNameAddress3" type="text" placeholder="Name and Address of Employer" />
+                    </div>
+                    <div>
+                        <label>
+                            Employment Dates (from - to)
+                        </label>
+                        <input asp-for="EmployeeForm.FormerEmployerEmploymentDates3" type="text" placeholder="Employment Dates" />
+                    </div>
+                    <div>
+                        <label>
+                            Position
+                        </label>
+                        <input asp-for="EmployeeForm.FormerEmployerPosition3" type="text" placeholder="Position" />
+                    </div>
+                    <div>
+                        <label>
+                            Salary
+                        </label>
+                        <input asp-for="EmployeeForm.FormerEmployerSalary3" type="text" placeholder="Ending Salary" />
+                    </div>
+                    <div>
+                        <label>
+                            Reason for Leaving
+                        </label>
+                        <input asp-for="EmployeeForm.FormerEmployerReason3" type="text" placeholder="Reason for Leaving" />
+                    </div>
+
+
+                </div>
+                <div>
+                    <h2 class="text-center">References</h2>
+                </div>
+                <div>
+                    <div>
+                        <h3 class="text-center">Reference 1</h3>
+                    </div>
+                    <div>
+                        <label>
+                            Name
+                        </label>
+                        <input asp-for="EmployeeForm.ReferenceName1" type="text" placeholder="Reference Name" />
+                    </div>
+                    <div>
+                        <label>
+                            Address
+                        </label>
+                        <input asp-for="EmployeeForm.ReferenceAddressLine1" type="text" placeholder="Address" />
+                    </div>
+                    <div>
+                        <label>
+                            City
+                        </label>
+                        <input asp-for="EmployeeForm.ReferenceCity1" type="text" placeholder="City" />
+                    </div>
+                    <div>
+                        <label>
+                            City
+                        </label>
+                        <input asp-for="EmployeeForm.ReferenceState1" type="text" placeholder="State" />
+                    </div>
+                    <div>
+                        <label>
+                            ZIP
+                        </label>
+                        <input asp-for="EmployeeForm.ReferenceZIP1" type="text" placeholder="ZIP" />
+                    </div>
+                    <div>
+                        <label>
+                            Business
+                        </label>
+                        <input asp-for="EmployeeForm.ReferenceBusiness1" type="text" placeholder="Business" />
+                    </div>
+                    <div>
+                        <label>
+                            Years Known
+                        </label>
+                        <input asp-for="EmployeeForm.ReferenceYearsKnown1" type="text" placeholder="Years Known" />
+                    </div>
+
+                    <div>
+                        <h3 class="text-center">Reference 2</h3>
+                    </div>
+                    <div>
+                        <label>
+                            Name
+                        </label>
+                        <input asp-for="EmployeeForm.ReferenceName2" type="text" placeholder="Reference Name" />
+                    </div>
+                    <div>
+                        <label>
+                            Address
+                        </label>
+                        <input asp-for="EmployeeForm.ReferenceAddressLine2" type="text" placeholder="Address" />
+                    </div>
+                    <div>
+                        <label>
+                            City
+                        </label>
+                        <input asp-for="EmployeeForm.ReferenceCity2" type="text" placeholder="City" />
+                    </div>
+                    <div>
+                        <label>
+                            City
+                        </label>
+                        <input asp-for="EmployeeForm.ReferenceState2" type="text" placeholder="State" />
+                    </div>
+                    <div>
+                        <label>
+                            ZIP
+                        </label>
+                        <input asp-for="EmployeeForm.ReferenceZIP2" type="text" placeholder="ZIP" />
+                    </div>
+                    <div>
+                        <label>
+                            Business
+                        </label>
+                        <input asp-for="EmployeeForm.ReferenceBusiness2" type="text" placeholder="Business" />
+                    </div>
+                    <div>
+                        <label>
+                            Years Known
+                        </label>
+                        <input asp-for="EmployeeForm.ReferenceYearsKnown2" type="text" placeholder="Years Known" />
+                    </div>
+                    <div>
+                        <h3 class="text-center">Reference 1</h3>
+                    </div>
+                    <div>
+                        <label>
+                            Name
+                        </label>
+                        <input asp-for="EmployeeForm.ReferenceName3" type="text" placeholder="Reference Name" />
+                    </div>
+                    <div>
+                        <label>
+                            Address
+                        </label>
+                        <input asp-for="EmployeeForm.ReferenceAddressLine3" type="text" placeholder="Address" />
+                    </div>
+                    <div>
+                        <label>
+                            City
+                        </label>
+                        <input asp-for="EmployeeForm.ReferenceCity3" type="text" placeholder="City" />
+                    </div>
+                    <div>
+                        <label>
+                            City
+                        </label>
+                        <input asp-for="EmployeeForm.ReferenceState3" type="text" placeholder="State" />
+                    </div>
+                    <div>
+                        <label>
+                            ZIP
+                        </label>
+                        <input asp-for="EmployeeForm.ReferenceZIP3" type="text" placeholder="ZIP" />
+                    </div>
+                    <div>
+                        <label>
+                            Business
+                        </label>
+                        <input asp-for="EmployeeForm.ReferenceBusiness3" type="text" placeholder="Business" />
+                    </div>
+                    <div>
+                        <label>
+                            Years Known
+                        </label>
+                        <input asp-for="EmployeeForm.ReferenceYearsKnown3" type="text" placeholder="Years Known" />
+                    </div>
+
+
+
+                </div>
+                <div>
+                    <div>
+                        @(Html.Recaptcha<RecaptchaV2Checkbox>(RecaptchaSettings.Value))
+                        <input type="hidden" name="g-recaptcha-response" value="" />
+                    </div>
+                    <input id="recaptcha" type="submit" value="Submit">
+                </div>
+            }
+        </div>
+    </div>
+</div>

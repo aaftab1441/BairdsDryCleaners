@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GY4HHYMX64"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-GY4HHYMX64');
+    </script>
+
+    <style>
+        .async-hide {
+            opacity: 0 !important
+        }
+    </style>
+    <script>
+        (function (a, s, y, n, c, h, i, d, e) {
+            s.className += ' ' + y; h.start = 1 * new Date;
+            h.end = i = function () { s.className = s.className.replace(RegExp(' ?' + y), '') };
+            (a[n] = a[n] || []).hide = h; setTimeout(function () { i(); h.end = null }, c); h.timeout = c;
+        })(window, document.documentElement, 'async-hide', 'dataLayer', 150,
+            { 'fullpage': true });</script>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    @RenderSection("header", required: false)
+
+
+
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KCLZWZC"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!--Navigation-->
+    <div id="nav-container">
+        <nav>
+            <span id="brand">
+                <a href="/" class="logo"><img src="/images/logo.png" alt="Baird's Dry Cleaners"></a>
+            </span>
+            <button class="grt-mobile-button">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </button>
+            <span id="phone">
+                <a href="tel:120837701550">
+                    <span class="number"><span>Call Today</span> (208) 377-1550</span>
+                    <span class="icon"></span>
+                </a>
+            </span>
+            <ul class="grt-menu">
+                <li class="nav-links current">
+                    <a href="/" itemprop="url">Home</a>
+                </li>
+                <li class="nav-links">
+                    <a href="/dry-cleaning" itemprop="url">Dry Cleaning</a>
+                </li>
+                <li class="nav-links">
+                    <a href="/boise-wedding-gown-cleaning" itemprop="url">Wedding Gowns</a>
+                </li>
+                <li class="nav-links">
+                    <a href="/boise-leather-suede-cleaning" itemprop="url">Leathers & Suedes</a>
+                </li>
+                <li class="nav-links">
+                    <a href="/alterations" itemprop="url">Alterations</a>
+                </li>
+                <li class="nav-links">
+                    <a href="/fold-fluff-service" itemprop="url">Fold &amp; Fluff</a>
+                </li>
+                <li class="nav-links">
+                    <a href="/about-us" itemprop="url">About</a>
+                </li>
+                <li class="nav-links">
+                    <a href="/Employment" itemprop="url">Employment</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <!--/Navigation-->
+    <div id="footer">
+        <div class="half-left">
+            <p>
+                Copyright 2019. All Rights Reserved. <span>Baird's Dry Cleaners</span>
+            </p>
+        </div>
+        <div class="half-right">
+            <a class="footer-link" href="/pick-up-delivery-form">FREE Pickup and Delivery</a> <a class="footer-link" href="/contact-us">Contact Us</a>
+        </div>
+    </div>
+    <div id="fullpage">
+        @RenderBody()
+    </div>
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
+        </script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+    </environment>
+    <script src="/js/grt-responsive-menu.js"></script>
+    <script src='/js/fullpage.js'></script>
+    <script>
+        $(document).ready(function () {
+            $('#fullpage').fullpage({
+                //options here
+                responsiveWidth: 960,
+                autoScrolling: false,
+                responsiveHeight: 790,
+                lazyLoading: false,
+                scrollBar: true,
+                paddingTop: '106px',
+                paddingBottom: '46px',
+                slidesNavigation: true,
+                afterResponsive: function (isResponsive) { }
+            });
+            $.fn.fullpage.setAllowScrolling(true);
+        });
+    </script><!-- Segment Pixel - ID_Boise_Bairds Dry Cleaners_RT - DO NOT MODIFY -->
+
+    <script src="https://secure.adnxs.com/seg?add=12453049&t=1" type="text/javascript"></script>
+
+    <!-- End of Segment Pixel -->
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

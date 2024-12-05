@@ -1,0 +1,559 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Baird's Dry Cleaners - Employee Form</title>
+    <style>
+
+        html {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        td, th {
+            border: 1px solid #000;
+            padding: 5px;
+            vertical-align: top;
+        }
+    </style>
+</head>
+<body>
+    <p>Hello Baird's Dry Cleaners!</p>
+    <p>
+        You have received an Employee Form.  The information is as follows:
+    </p>
+    <table>
+        <tr>
+            <td>
+                Name:
+            </td>
+            <td>
+                [Name]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Email:
+            </td>
+            <td>
+                [Email]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Present Address:
+            </td>
+            <td>
+                [PresentAddressLine] [PresentCity] , [PresentState] [PresentZIP]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Permenant Address:
+            </td>
+            <td>
+                [PermanentAddressLine] [PermanentCity] , [PermanentState] [PermanentZIP]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Phone:
+            </td>
+            <td>
+                [Phone]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Position Applying for:
+            </td>
+            <td>
+                [PositionApplied]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Date Start:
+            </td>
+            <td>
+                [PositionStartDate]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Salary Desired:
+            </td>
+            <td>
+                [SalaryDesired]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Are you employed?:
+            </td>
+            <td>
+                [CurrentlyEmployed]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Inquire current employer?:
+            </td>
+            <td>
+                [InquireCurrentEmployer]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Applied to Bairds before?:
+            </td>
+            <td>
+                [AppliedToBairds]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                If so, where and when?:
+            </td>
+            <td>
+                [AppliedToBairdsWhereWhen]
+            </td>
+        </tr>
+        <tr>
+            <th colspan="2">
+                Education
+            </th>
+        </tr>
+        <tr>
+            <td>
+                High:
+            </td>
+            <td>
+                [Highschool]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Years Attended:
+            </td>
+            <td>
+                [HighschoolYrsAttended]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Graduated:
+            </td>
+            <td>
+                [HighschoolGraduated]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                College:
+            </td>
+            <td>
+                [College]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Years Attended:
+            </td>
+            <td>
+                [CollegelYrsAttended]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Graduated:
+            </td>
+            <td>
+                [CollegeGraduated]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Major:
+            </td>
+            <td>
+                [CollegeMajor]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Trade, Business, or Correspondence School:
+            </td>
+            <td>
+                [TradeBusiness]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Years Attended:
+            </td>
+            <td>
+                [TradeBusinessYrsAttended]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Graduated:
+            </td>
+            <td>
+                [TradeBusinessGraduated]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Subjects Studied:
+            </td>
+            <td>
+                [TradeBusinessSubjects]
+            </td>
+        </tr>
+        <tr>
+            <th>General Information</th>
+        </tr>
+        <tr>
+            <td>
+                Subjects of special study:
+            </td>
+            <td>
+                [SubjectsOfSpecialStudy]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Special training, skills, or certifications:
+            </td>
+            <td>
+                [SpecialSkillsTraining]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                US Military or Naval service:
+            </td>
+            <td>
+                [MilitaryService]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Rank:
+            </td>
+            <td>
+                [MilitaryRank]
+            </td>
+        </tr>
+        <tr>
+            <th colspan="2">
+                Current Employer
+            </th>
+        </tr>
+        <tr>
+            <td>
+                Name and Address of Employer:
+            </td>
+            <td>
+                [CurrentEmployerNameAddress]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Employment Dates (from)Name and Address of Employer:
+            </td>
+            <td>
+                [CurrentEmployerEmploymentDates]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Position:
+            </td>
+            <td>
+                [CurrentEmployerPosition]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Salary:
+            </td>
+            <td>
+                [CurrentEmployerSalary]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Reason for Leaving:
+            </td>
+            <td>
+                [CurrentEmployerReason]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Contact Name:
+            </td>
+            <td>
+                [CurrentEmployerContactName]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Contact Phone:
+            </td>
+            <td>
+                [CurrentEmployerContactPhone]
+            </td>
+        </tr>
+        <tr>
+            <th colspan="2">
+                Former Employers
+            </th>
+        </tr>
+        <tr>
+            <td>
+                Name and Address of Employer:
+            </td>
+            <td>
+                [FormerEmployerNameAddress1]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Employment Dates (from - to):
+            </td>
+            <td>
+                [FormerEmployerEmploymentDates1]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Position:
+            </td>
+            <td>
+                [FormerEmployerPosition1]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Salary:
+            </td>
+            <td>
+                [FormerEmployerSalary1]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Reason for Leaving:
+            </td>
+            <td>
+                [FormerEmployerReason1]
+            </td>
+        </tr>
+
+
+
+
+
+        <tr>
+            <td>
+                Name and Address of Employer:
+            </td>
+            <td>
+                [FormerEmployerNameAddress2]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Employment Dates (from - to):
+            </td>
+            <td>
+                [FormerEmployerEmploymentDates2]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Position:
+            </td>
+            <td>
+                [FormerEmployerPosition2]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Salary:
+            </td>
+            <td>
+                [FormerEmployerSalary2]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Reason for Leaving:
+            </td>
+            <td>
+                [FormerEmployerReason2]
+            </td>
+        </tr>
+
+
+
+        <tr>
+            <td>
+                Name and Address of Employer:
+            </td>
+            <td>
+                [FormerEmployerNameAddress3]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Employment Dates (from - to):
+            </td>
+            <td>
+                [FormerEmployerEmploymentDates3]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Position:
+            </td>
+            <td>
+                [FormerEmployerPosition3]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Salary:
+            </td>
+            <td>
+                [FormerEmployerSalary3]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Reason for Leaving:
+            </td>
+            <td>
+                [FormerEmployerReason3]
+            </td>
+        </tr>
+
+        <tr>
+            <th colspan="2">References</th>
+        </tr>
+
+
+        <tr>
+            <td>
+                Name:
+            </td>
+            <td>
+                [ReferenceName1]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Address:
+            </td>
+            <td>
+                [ReferenceAddressLine1] [ReferenceCity1] , [ReferenceState1] [ReferenceZIP1]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Business:
+            </td>
+            <td>
+                [ReferenceBusiness1]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Years Known:
+            </td>
+            <td>
+                [ReferenceYearsKnown1]
+            </td>
+        </tr>
+
+
+
+        <tr>
+            <td>
+                Name:
+            </td>
+            <td>
+                [ReferenceName2]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Address:
+            </td>
+            <td>
+                [ReferenceAddressLine2] [ReferenceCity2] , [ReferenceState2] [ReferenceZIP2]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Business:
+            </td>
+            <td>
+                [ReferenceBusiness2]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Years Known:
+            </td>
+            <td>
+                [ReferenceYearsKnown2]
+            </td>
+        </tr>
+
+
+
+        <tr>
+            <td>
+                Name:
+            </td>
+            <td>
+                [ReferenceName3]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Address:
+            </td>
+            <td>
+                [ReferenceAddressLine3] [ReferenceCity3] , [ReferenceState3] [ReferenceZIP3]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Business:
+            </td>
+            <td>
+                [ReferenceBusiness3]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Years Known:
+            </td>
+            <td>
+                [ReferenceYearsKnown3]
+            </td>
+        </tr>
+
+
+    </table>
+</body>
+</html>

@@ -1,0 +1,4 @@
+﻿user-agent:*
+Disallow:
+
+Sitemap: https://bairdsdrycleaners.com/sitemap.xml
